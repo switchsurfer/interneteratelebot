@@ -109,6 +109,7 @@ web.1: up 2018/11/04 17:00:27 +0300 (~ 51s ago)
 1. На [странице](https://dashboard.heroku.com/apps) создаем новое приложение
 ![Create app](https://i.imgur.com/1jBnzNG.png)
 ![Create app](https://i.imgur.com/jYYiSFe.png)
+> Не забываем добавить токен бота `heroku config:set TOKEN=123429417:AAEG39dbtyy4UrUDkvE7L5hIKuoIuQp9pfs`
 2. Подключаем наш репозиторий
 ![Create app](https://i.imgur.com/yu6ePUK.png)
 3. Включаем **Automatic deploys** ветки **heroku**
