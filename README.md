@@ -105,6 +105,19 @@ https://devcenter.heroku.com/articles/dyno-sleeping
 web.1: up 2018/11/04 17:00:27 +0300 (~ 51s ago)
 ```
 
+## Деплой через GitHub
+1. На [странице](https://dashboard.heroku.com/apps) создаем новое приложение
+![Create app](https://i.imgur.com/1jBnzNG.png)
+![Create app](https://i.imgur.com/jYYiSFe.png)
+2. Подключаем наш репозиторий
+![Create app](https://i.imgur.com/yu6ePUK.png)
+3. Включаем **Automatic deploys** ветки **heroku**
+> Если ваш бот находится на ветке **master**, выбирайте eё
+
+![Create app](https://i.imgur.com/HK0o5v0.png)
+4. Так же выбираем нужную нам ветку и жмем **Deploy Branch**
+![Create app](https://i.imgur.com/zaufuoh.png)
+
 ## Пояснение к коду
 1. [main.py](https://github.com/heyyyoyy/deploy-your-bot-everywhere/blob/heroku/main.py)
 ```python
