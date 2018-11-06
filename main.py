@@ -7,7 +7,7 @@ from aiogram.utils.executor import start_webhook
 TOKEN = os.environ['TOKEN']
 
 
-WEBHOOK_HOST = 'https://deploy-heroku-bot.herokuapp.com'  # name your app
+WEBHOOK_HOST = 'https://interneteratelebot.herokuapp.com'  # name your app
 WEBHOOK_PATH = '/webhook/'
 WEBHOOK_URL = f"{WEBHOOK_HOST}{WEBHOOK_PATH}"
 
