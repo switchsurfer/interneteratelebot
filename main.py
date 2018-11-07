@@ -162,6 +162,29 @@ async def process_help_command(message: types.Message):
 #     await bot.send_message(msg.from_user.id, msg.text)
 
 
+help_message = text(
+    "Это урок по клавиатурам.",
+    "Доступные команды:\n",
+    "/start - приветствие",
+    "\nШаблоны клавиатур:",
+    "/hi1 - авто размер",
+    "/hi2 - скрыть после нажатия",
+    "/hi3 - больше кнопок",
+    "/hi4 - кнопки в ряд",
+    "/hi5 - больше рядов",
+    "/hi6 - запрос локации и номера телефона",
+    "/hi7 - все методы"
+    "/rm - убрать шаблоны",
+    "\nИнлайн клавиатуры:",
+    "/1 - первая кнопка",
+    "/2 - сразу много кнопок",
+    sep="\n"
+)
+
+@dp.message_handler(commands=['help'])
+async def process_help_command(message: types.Message):
+    await message.reply(help_message)
+
 
 
 if __name__ == '__main__':
