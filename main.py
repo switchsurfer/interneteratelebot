@@ -33,9 +33,7 @@ async def on_shutdown(dp):
     await bot.delete_webhook()
 
 
-@dp.message_handler(commands=['start'])
-async def process_start_command(message: types.Message):
-    await message.reply("Привет!", reply_markup=kb.greet_kb)
+
 
 
 @dp.message_handler(commands=['help'])
@@ -55,6 +53,10 @@ button_hi = KeyboardButton('Привет! 👋')
 greet_kb = ReplyKeyboardMarkup()
 greet_kb.add(button_hi)
 
+
+@dp.message_handler(commands=['start'])
+async def process_start_command(message: types.Message):
+    await message.reply("Привет!", reply_markup=kb.greet_kb)
 
 
 
