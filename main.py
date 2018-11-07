@@ -3,6 +3,10 @@
 #git commit -am "setup"
 #git push heroku heroku:master
 
+
+import asyncio
+from aiogram import Bot, Dispatcher, executor, filters, types
+
 import logging
 import os
 from aiogram import Bot, types
