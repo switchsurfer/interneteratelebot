@@ -12,6 +12,9 @@ import os
 from aiogram import Bot, types
 from aiogram.dispatcher import Dispatcher
 from aiogram.utils.executor import start_webhook
+from aiogram.types import ReplyKeyboardRemove, \
+    ReplyKeyboardMarkup, KeyboardButton, \
+    InlineKeyboardMarkup, InlineKeyboardButton
 
 TOKEN = os.environ['TOKEN']
 
@@ -26,6 +29,16 @@ WEBAPP_PORT = os.environ.get('PORT')
 bot = Bot(token=TOKEN)
 dp = Dispatcher(bot)
 
+button_hi = KeyboardButton('Привет! 👋')
+
+greet_kb = ReplyKeyboardMarkup()
+greet_kb.add(button_hi)
+
+
+
+
+
+
 async def on_startup(dp):
     await bot.set_webhook(WEBHOOK_URL)
 
@@ -35,7 +48,7 @@ async def on_shutdown(dp):
 
 @dp.message_handler(commands=['start'])
 async def process_start_command(message: types.Message):
-    await message.reply("Привет!\nНапиши мне что-нибудь!")
+    await message.reply("Привет!", reply_markup=kb.greet_kb)
 
 
 @dp.message_handler(commands=['help'])
@@ -58,7 +71,7 @@ async def process_help_command(message: types.Message):
 
     # You can also use URL's
     # For example: get random puss:
-    media.attach_photo('http://lorempixel.com/400/200/cats/?random=12345', 'Random cat.')
+    media.attach_photo('http://lorempixel.com/400/200/cats/', 'Random cat.')
 
     # And you can also use file ID:
     # media.attach_photo('<file_id>', 'cat-cat-cat.')
