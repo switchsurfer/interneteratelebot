@@ -123,7 +123,7 @@ async def process_command_1(message: types.Message):
 
 
 @dp.message_handler(commands=['1️⃣'])
-async def process_command_2(message: types.Message):
+async def process_command(message: types.Message):
     media.attach_photo('https://vrn.kassir.ru/media/poster/4652e81d5f3d7981cb001f97f18d96cc.jpg')
     await message.reply("https://iframeab-pre2160.intickets.ru/node/10902005",
                         )
