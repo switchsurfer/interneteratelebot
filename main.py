@@ -56,11 +56,6 @@ async def process_help_command(message: types.Message):
     # Create media group
     media = types.MediaGroup()
 
-    # Attach local file
-    media.attach_photo(types.InputFile('data/cat.jpg'), 'Cat!')
-    # More local files and more cats!
-    media.attach_photo(types.InputFile('data/cats.jpg'), 'More cats!')
-
     # You can also use URL's
     # For example: get random puss:
     media.attach_photo('http://lorempixel.com/400/200/cats/', 'Random cat.')
