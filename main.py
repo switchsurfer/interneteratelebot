@@ -58,7 +58,7 @@ async def process_help_command(message: types.Message):
 
     # You can also use URL's
     # For example: get random puss:
-    media.attach_photo('http://lorempixel.com/400/200/cats/', 'Random cat.')
+    media.attach_photo('http://lorempixel.com/400/200/cats/?random=12345', 'Random cat.')
 
     # And you can also use file ID:
     # media.attach_photo('<file_id>', 'cat-cat-cat.')
