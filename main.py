@@ -128,8 +128,8 @@ async def process_command_2(message: types.Message):
 ###keyboards
 
 @dp.message_handler(text = 'one')
-async def process_one_command(text):
-    await message.reply("Двое на кочелях")
+async def process_one_command(message: types.Message):
+    await message.reply("Двое на кочелях", url='https://iframeab-pre2160.intickets.ru/node/10902005')
 
 @dp.message_handler(commands=['cat'])
 async def process_help_command(message: types.Message):
