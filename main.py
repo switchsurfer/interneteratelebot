@@ -128,7 +128,7 @@ async def process_command_2(message: types.Message):
 ###keyboards
 
 @dp.message_handler(text = 'one')
-async def process_one_command():
+async def process_one_command(text):
     await message.reply("Двое на кочелях")
 
 @dp.message_handler(commands=['cat'])
