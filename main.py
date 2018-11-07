@@ -158,9 +158,9 @@ async def process_help_command(message: types.Message):
 # async def echo_message(msg: types.Message):
 #     await bot.send_message(msg.from_user.id, msg.text)
 
-
-help_message = (
-    "Это урок по клавиатурам.",
+@dp.message_handler(commands=['help'])
+async def process_help_command(message: types.Message):
+    await message.reply("Это урок по клавиатурам.",
     "Доступные команды:\n",
     "/start - приветствие",
     "\nШаблоны клавиатур:",
@@ -174,13 +174,7 @@ help_message = (
     "/rm - убрать шаблоны",
     "\nИнлайн клавиатуры:",
     "/1 - первая кнопка",
-    "/2 - сразу много кнопок",
-    sep="\n"
-)
-
-@dp.message_handler(commands=['help'])
-async def process_help_command(message: types.Message):
-    await message.reply(help_message)
+    "/2 - сразу много кнопок")
 
 
 
