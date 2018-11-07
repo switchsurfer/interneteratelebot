@@ -14,7 +14,7 @@ greet_kb2 = ReplyKeyboardMarkup(
     resize_keyboard=True, one_time_keyboard=True
 ).add(button_hi)
 
-button1 = KeyboardButton('one')
+button1 = KeyboardButton('one', https://iframeab-pre2160.intickets.ru/node/10902005)
 button2 = KeyboardButton('2️⃣')
 button3 = KeyboardButton('3️⃣')
 

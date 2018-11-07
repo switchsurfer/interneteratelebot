@@ -121,16 +121,15 @@ async def process_command_1(message: types.Message):
     await message.reply("Первая инлайн кнопка",
                         reply_markup=kb.inline_kb1)
 
-
-@dp.message_handler(commands=[one])
-async def process_command_one(message: types.Message):
-    await message.reply("https://iframeab-pre2160.intickets.ru/node/10902005")
-
 @dp.message_handler(commands=['2'])
 async def process_command_2(message: types.Message):
     await message.reply("Отправляю все возможные кнопки",
                         reply_markup=kb.inline_kb_full)
 ###keyboards
+
+@dp.message_handler(commands=['one'])
+async def process_one_command(message: types.Message):
+    await message.reply("Двое на кочелях")
 
 @dp.message_handler(commands=['cat'])
 async def process_help_command(message: types.Message):
