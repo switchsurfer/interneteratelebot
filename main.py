@@ -42,8 +42,8 @@ async def process_start_command(message: types.Message):
 async def process_help_command(message: types.Message):
     await message.reply("Напиши мне что-нибудь, и я отпрпавлю этот текст тебе в ответ!")
 
-@dp.message_handler(filters.CommandStart())
-async def send_welcome(message: types.Message)
+@dp.message_handler(commands=['cat'])
+async def process_help_command(message: types.Message):
     # So... At first I want to send something like this:
     await message.reply("Do you want to see many pussies? Are you ready?")
 
