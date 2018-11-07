@@ -130,7 +130,7 @@ async def process_command_2(message: types.Message):
 @dp.message_handler(text = 'one')
 async def process_one_command(message: types.Message):
     await message.reply("Двое на кочелях") 
-    await message.reply("https://iframeab-pre2160.intickets.ru/node/10902005")
+    await dp.send_message("https://iframeab-pre2160.intickets.ru/node/10902005")
     
 
 @dp.message_handler(commands=['cat'])
