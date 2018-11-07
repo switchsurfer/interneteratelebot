@@ -122,7 +122,7 @@ async def process_command_1(message: types.Message):
                         reply_markup=kb.inline_kb1)
 
 
-@dp.message_handler(commands=['one'])
+@dp.message_handler(commands=[one])
 async def process_command_one(message: types.Message):
     await message.reply("https://iframeab-pre2160.intickets.ru/node/10902005")
 
