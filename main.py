@@ -21,18 +21,16 @@ WEBAPP_PORT = os.environ.get('PORT')
 
 logging.basicConfig(level=logging.INFO)
 
-
-
-
-# async def on_startup(dp):
-#     await bot.set_webhook(WEBHOOK_URL)
-
-
-# async def on_shutdown(dp):
-#     await bot.delete_webhook()
-
 bot = Bot(token=TOKEN)
 dp = Dispatcher(bot)
+
+
+async def on_startup(dp):
+    await bot.set_webhook(WEBHOOK_URL)
+
+
+async def on_shutdown(dp):
+    await bot.delete_webhook()
 
 
 @dp.message_handler(commands=['start'])
@@ -46,7 +44,6 @@ async def process_help_command(message: types.Message):
     msg = text(bold('Я могу ответить на следующие команды:'),
                '/voice', '/photo', '/group', '/note', '/file, /testpre', sep='\n')
     await message.reply(msg, parse_mode=ParseMode.MARKDOWN)
-
 
 
 # @dp.message_handler()
@@ -64,7 +61,6 @@ async def process_help_command(message: types.Message):
 
 
 if __name__ == '__main__':
-    executor.start_polling(dp)
-    # start_webhook(dispatcher=dp, webhook_path=WEBHOOK_PATH,
-    #               on_startup=on_startup, on_shutdown=on_shutdown,
-    #               skip_updates=True, host=WEBAPP_HOST, port=WEBAPP_PORT)
+    start_webhook(dispatcher=dp, webhook_path=WEBHOOK_PATH,
+                  on_startup=on_startup, on_shutdown=on_shutdown,
+                  skip_updates=True, host=WEBAPP_HOST, port=WEBAPP_PORT)
