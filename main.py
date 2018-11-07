@@ -122,12 +122,17 @@ async def process_command_1(message: types.Message):
                         reply_markup=kb.inline_kb1)
 
 
+@dp.message_handler(commands=['1️⃣'])
+async def process_command_2(message: types.Message):
+    media.attach_photo('https://vrn.kassir.ru/media/poster/4652e81d5f3d7981cb001f97f18d96cc.jpg')
+    await message.reply("https://iframeab-pre2160.intickets.ru/node/10902005",
+                        )
+
 @dp.message_handler(commands=['2'])
 async def process_command_2(message: types.Message):
     await message.reply("Отправляю все возможные кнопки",
                         reply_markup=kb.inline_kb_full)
 ###keyboards
-
 
 @dp.message_handler(commands=['cat'])
 async def process_help_command(message: types.Message):
