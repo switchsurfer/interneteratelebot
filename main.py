@@ -46,6 +46,20 @@ async def process_help_command(message: types.Message):
     await message.reply(msg, parse_mode=ParseMode.MARKDOWN)
 
 
+
+from aiogram.types import ReplyKeyboardRemove, \
+    ReplyKeyboardMarkup, KeyboardButton, \
+    InlineKeyboardMarkup, InlineKeyboardButton
+
+button_hi = KeyboardButton('Привет! 👋')
+
+greet_kb = ReplyKeyboardMarkup()
+greet_kb.add(button_hi)
+
+
+
+
+
 # @dp.message_handler()
 # async def echo_message(msg: types.Message):
 #     await bot.send_message(msg.from_user.id, msg.text)
