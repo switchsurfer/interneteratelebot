@@ -128,9 +128,6 @@ async def process_command_2(message: types.Message):
 ###keyboards
 
 
-@dp.message_handler(commands=['help'])
-async def process_help_command(message: types.Message):
-    await message.reply("Напиши мне что-нибудь, и я отпрпавлю этот текст тебе в ответ!")
 
 @dp.message_handler(commands=['cat'])
 async def process_help_command(message: types.Message):
@@ -162,11 +159,8 @@ async def process_help_command(message: types.Message):
 #     await bot.send_message(msg.from_user.id, msg.text)
 
 
-
-
-@dp.message_handler(commands=['help'])
-async def process_help_command(message: types.Message):
-    await message.reply("Это урок по клавиатурам.",
+help_message = text(
+    "Это урок по клавиатурам.",
     "Доступные команды:\n",
     "/start - приветствие",
     "\nШаблоны клавиатур:",
@@ -181,7 +175,12 @@ async def process_help_command(message: types.Message):
     "\nИнлайн клавиатуры:",
     "/1 - первая кнопка",
     "/2 - сразу много кнопок",
-    sep="\n")
+    sep="\n"
+)
+
+@dp.message_handler(commands=['help'])
+async def process_help_command(message: types.Message):
+    await message.reply(help_message)
 
 
 
