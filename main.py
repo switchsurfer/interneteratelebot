@@ -35,7 +35,33 @@ async def on_shutdown(dp):
     await bot.delete_webhook()
 
 
-###
+##Уведомления
+
+@dp.callback_query_handler(func=lambda c: c.data == 'button1')
+async def process_callback_button1(callback_query: types.CallbackQuery):
+    await bot.answer_callback_query(callback_query.id)
+    await bot.send_message(callback_query.from_user.id, 'Нажата первая кнопка!')
+
+
+@dp.callback_query_handler(func=lambda c: c.data and c.data.startswith('btn'))
+async def process_callback_kb1btn1(callback_query: types.CallbackQuery):
+    code = callback_query.data[-1]
+    if code.isdigit():
+        code = int(code)
+    if code == 2:
+        await bot.answer_callback_query(callback_query.id, text='Нажата вторая кнопка')
+    elif code == 5:
+        await bot.answer_callback_query(
+            callback_query.id,
+            text='Нажата кнопка с номером 5.\nА этот текст может быть длиной до 200 символов 😉',
+            show_alert=True)
+    else:
+        await bot.answer_callback_query(callback_query.id)
+    await bot.send_message(callback_query.from_user.id, f'Нажата инлайн кнопка! code={code}')
+
+##
+
+###keyboards
 @dp.message_handler(commands=['start'])
 async def process_start_command(message: types.Message):
     await message.reply("Привет!", reply_markup=kb.greet_kb)
@@ -99,9 +125,7 @@ async def process_command_1(message: types.Message):
 async def process_command_2(message: types.Message):
     await message.reply("Отправляю все возможные кнопки",
                         reply_markup=kb.inline_kb_full)
-
-
-###
+###keyboards
 
 
 @dp.message_handler(commands=['help'])
