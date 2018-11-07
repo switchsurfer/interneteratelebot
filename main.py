@@ -12,12 +12,10 @@ import os
 from aiogram import Bot, types
 from aiogram.dispatcher import Dispatcher
 from aiogram.utils.executor import start_webhook
-from aiogram.types import ReplyKeyboardRemove, \
-    ReplyKeyboardMarkup, KeyboardButton, \
-    InlineKeyboardMarkup, InlineKeyboardButton
+
 
 TOKEN = os.environ['TOKEN']
-
+import keyboards as kb
 
 WEBHOOK_HOST = 'https://interneteratelebot.herokuapp.com'  # name your app
 WEBHOOK_PATH = '/webhook/'
@@ -28,16 +26,6 @@ WEBAPP_PORT = os.environ.get('PORT')
 
 bot = Bot(token=TOKEN)
 dp = Dispatcher(bot)
-
-button_hi = KeyboardButton('Привет! 👋')
-
-greet_kb = ReplyKeyboardMarkup()
-greet_kb.add(button_hi)
-
-
-
-
-
 
 async def on_startup(dp):
     await bot.set_webhook(WEBHOOK_URL)
